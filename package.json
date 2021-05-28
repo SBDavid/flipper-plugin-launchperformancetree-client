@@ -1,8 +1,8 @@
 {
   "$schema": "https://fbflipper.com/schemas/plugin-package/v2.json",
-  "name": "flipper-plugin-launchperformancetree",
+  "name": "flipper-plugin-launchperformance-tree",
   "id": "LaunchPerformanceTree",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "pluginType": "client",
   "main": "dist/bundle.js",
   "flipperBundlerEntry": "src/index.tsx",
@@ -15,6 +15,7 @@
   "scripts": {
     "lint": "flipper-pkg lint",
     "prepack": "flipper-pkg lint && flipper-pkg bundle",
+    "pack": "flipper-pkg",
     "build": "flipper-pkg bundle",
     "watch": "flipper-pkg bundle --watch",
     "test": "jest --no-watchman"
