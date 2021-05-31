@@ -1,6 +1,6 @@
 {
   "$schema": "https://fbflipper.com/schemas/plugin-package/v2.json",
-  "name": "flipper-plugin-launchperformance-tree",
+  "name": "flipper-plugin-launchperformancetree",
   "id": "LaunchPerformanceTree",
   "version": "1.0.4",
   "pluginType": "client",
