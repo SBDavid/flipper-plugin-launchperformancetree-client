@@ -35,7 +35,7 @@ export function plugin(client: PluginClient<Events, Methods>) {
   // 当前树形结构数据
   const tree = createState<JsModule | null>(null, {persist: 'tree'});
   // 最小时间筛选
-  const minDuration = createState<number>(0, {persist: 'minDuration'});
+  const minDuration = createState<number>(5, {persist: 'minDuration'});
   // index模块id，开发环境为0，生产为200000，但是目前不上生产
   const initId = createState<number>(0, {persist: 'initId'});
 
