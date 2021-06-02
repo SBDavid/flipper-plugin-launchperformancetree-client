@@ -2,7 +2,7 @@
   "$schema": "https://fbflipper.com/schemas/plugin-package/v2.json",
   "name": "flipper-plugin-launchperformancetree",
   "id": "LaunchPerformanceTree",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "pluginType": "client",
   "main": "dist/bundle.js",
   "flipperBundlerEntry": "src/index.tsx",
@@ -38,5 +38,8 @@
     "flipper-pkg": "latest",
     "jest": "latest",
     "typescript": "latest"
+  },
+  "dependencies": {
+    "electron": "^13.0.1"
   }
 }

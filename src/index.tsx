@@ -8,7 +8,8 @@ import {
   StopTwoTone
 } from '@ant-design/icons';
 import { DataNode } from 'rc-tree/lib/interface';
-
+// @ts-ignore
+import electron from 'electron';
 
 type Events = {};
 
@@ -55,6 +56,8 @@ export function plugin(client: PluginClient<Events, Methods>) {
     tree.set(res);
   }
 
+  // 打开文档
+
   return {tree, minDuration, initId, refreshTree};
 }
 
@@ -79,7 +82,7 @@ function _getTreeData(data: JsModule): DataNode {
   if (!data.isBase) {
     children = data.children.map((module) => { return _getTreeData(module); });
   }
-
+  
   return {
     title: `${data.duration}ms - ${data.verboseName}`,
     key: data.verboseName,
@@ -103,6 +106,12 @@ export function Component() {
     <Layout style={{backgroundColor: 'white'}}>
       <Layout.Header style={{backgroundColor: 'transparent', padding: '0 0'}}>
         <PageHeader title={'Launch Performance Tree'} extra={[
+          <Button key={4} type="primary" title={'解惑'}
+            onClick={() => {
+              electron.shell.openExternal("https://github.com/SBDavid/flipper-plugin-launchperformancetree-client");
+            }}
+          >{'解惑'}</Button>,
+          <Space key={3}> </Space>,
           <Radio.Group
             key={0}
             options={[
@@ -116,6 +125,7 @@ export function Component() {
             buttonStyle="solid"
             onChange={(val) => {
               instance.minDuration.set(val.target.value);
+              instance.refreshTree();
             }}
           />,
           <Space key={1}></Space>,
@@ -130,7 +140,6 @@ export function Component() {
         {treeData === null ? <Empty /> : 
         <div style={{overflow: 'scroll', height: '100%'}}>
           <Tree
-            defaultExpandAll
             showLine
             virtual
             showIcon
